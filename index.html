@@ -316,20 +316,35 @@
 
         //按下傳送按鈕後執行
         function submitHandler() {
-            var to = "shela3251@gmail.com";//寫死的傳送對象 就是公司的信箱 不會顯示在網頁上
-            var name = nameText.value;//讀取ID為 nameTextuser 物件中的值
-            var email = emailText.value;
-            var tel = telText.value;
-            var subject = message.value;
+            // var to = "shela3251@gmail.com";//寫死的傳送對象 就是公司的信箱 不會顯示在網頁上
+            // var name = nameText.value;//讀取ID為 nameTextuser 物件中的值
+            // var email = emailText.value;
+            // var tel = telText.value;
+            // var subject = message.value;
+            // var body = "" + message.value + '%0A%0A%0A';//%0A是換行 換了三行
+            // body += "From：" + nameText.value + '%0A';
+            // body += "Email：" + emailText.value + '%0A';
+            // body += "Tel：" + telText.value;
+            // mailTo.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+            // mailTo.click();
             var body = "" + message.value + '%0A%0A%0A';//%0A是換行 換了三行
             body += "From：" + nameText.value + '%0A';
             body += "Email：" + emailText.value + '%0A';
             body += "Tel：" + telText.value;
-            mailTo.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
-            mailTo.click();
+            Email.send({
+                SecureToken: "4dcf0630-f7ce-4d38-8f50-5f0550ec8950",
+                To: 'shela1216@gmail.com',
+                From: emailText.value,
+                Subject: nameText.value,
+                Body: body
+            }).then(
+                message => alert(message)
+            );
         }
+
     </script>
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="9f842c3d-ebf0-4d8e-95f2-b4aa1bbf2416";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script
+        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "9f842c3d-ebf0-4d8e-95f2-b4aa1bbf2416"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
 </body>
 
 </html>
